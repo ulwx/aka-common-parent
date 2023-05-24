@@ -15,15 +15,8 @@
     <url>https://github.com/ulwx/aka-common-parent</url>
     <description>aka-common-parent</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.source.version>1.8</java.source.version>
-        <java.target.version>1.8</java.target.version>
-        <aka.version>2.0-SNAPSHOT</aka.version>
-    </properties>
     <modules>
-          <module>../aka-common-tool</module>
-<!--                <module>../aka-common-smssend</module>-->
+<!--    <module>../aka-common-smssend</module>-->
            <module>../aka-common-webvc</module>
            <module>../aka-admin-base</module>
            <module>../aka-service-frame</module>
@@ -177,8 +170,15 @@
                 <groupId>com.github.ulwx</groupId>
                 <version>${aka.dbutils.version}</version>
             </dependency>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
-
     </dependencyManagement>
 
     <distributionManagement>
