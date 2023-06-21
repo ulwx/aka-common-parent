@@ -16,11 +16,13 @@
     <description>aka-common-parent</description>
 
     <modules>
-<!--    <module>../aka-common-smssend</module>-->
+           <module>../aka-common-smssend</module>
            <module>../aka-common-webvc</module>
            <module>../aka-admin-base</module>
            <module>../aka-service-frame</module>
-
+           <module>../aka-service-gateway-starter</module>
+           <module>../aka-fileserver</module>
+           <module>../aka-ueditor-ext</module>
     </modules>
     <licenses>
         <license>
@@ -133,7 +135,11 @@
     </build>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -150,12 +156,12 @@
                 <version>${aka.dbutils.version}</version>
             </dependency>
             <dependency>
-                <artifactId>aka-common-tool</artifactId>
+                <artifactId>aka-common-smssend</artifactId>
                 <groupId>com.github.ulwx</groupId>
                 <version>${aka.dbutils.version}</version>
             </dependency>
             <dependency>
-                <artifactId>aka-common-smssend</artifactId>
+                <artifactId>aka-ueditor-ext</artifactId>
                 <groupId>com.github.ulwx</groupId>
                 <version>${aka.dbutils.version}</version>
             </dependency>
@@ -171,10 +177,22 @@
                 <version>${aka.dbutils.version}</version>
             </dependency>
             <dependency>
+                <artifactId>aka-fileserver</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.version}</version>
+            </dependency>
+            <dependency>
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -200,6 +218,15 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>2.4.5</version>
+                        <configuration>
+                            <fork>true</fork>
+                            <addResources>true</addResources>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
