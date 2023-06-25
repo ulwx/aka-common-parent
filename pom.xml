@@ -20,7 +20,6 @@
            <module>../aka-common-webvc</module>
            <module>../aka-admin-base</module>
            <module>../aka-service-frame</module>
-           <module>../aka-service-gateway-starter</module>
            <module>../aka-fileserver</module>
            <module>../aka-ueditor-ext</module>
     </modules>
@@ -153,46 +152,39 @@
             <dependency>
                 <artifactId>aka-common-webvc</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
             <dependency>
                 <artifactId>aka-common-smssend</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
             <dependency>
                 <artifactId>aka-ueditor-ext</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
             <dependency>
                 <artifactId>aka-admin-base</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
 
             <dependency>
                 <artifactId>aka-service-frame</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
             <dependency>
                 <artifactId>aka-fileserver</artifactId>
                 <groupId>com.github.ulwx</groupId>
-                <version>${aka.dbutils.version}</version>
+                <version>${aka.version}</version>
             </dependency>
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
