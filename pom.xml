@@ -6,22 +6,47 @@
     <version>2.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>aka-common-parent</name>
-    <parent>
-        <groupId>com.github.ulwx</groupId>
-        <artifactId>aka-dbutils-parent</artifactId>
-        <version>2.0-SNAPSHOT</version>
-        <relativePath>../aka-dbutils-parent/pom.xml</relativePath>
-    </parent>
+
     <url>https://github.com/ulwx/aka-common-parent</url>
     <description>aka-common-parent</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <aka.version>2.0-SNAPSHOT</aka.version>
+        <aka.dbutils.version>${aka.version}</aka.dbutils.version>
+        <aka.dbutils.spring.version>${aka.version}</aka.dbutils.spring.version>
+        <aka.dbutils.spring.boot.starter.version>${aka.version}</aka.dbutils.spring.boot.starter.version>
+        <aka-dbutils-spring-dynamic-datasoruce.version>${aka.version}</aka-dbutils-spring-dynamic-datasoruce.version>
+        <spring.version>5.3.26</spring.version>
+        <spring.boot.version>2.7.12</spring.boot.version>
+        <spring-cloud.version>2021.0.7</spring-cloud.version>
+        <spring-cloud-Alibaba.version>2021.0.5.0</spring-cloud-Alibaba.version>
 
+        <seata.version>1.7.0</seata.version>
+        <shardingjdbc.version>5.4.0</shardingjdbc.version>
+    </properties>
     <modules>
-           <module>../aka-common-smssend</module>
-           <module>../aka-common-webvc</module>
-           <module>../aka-admin-base</module>
-           <module>../aka-service-frame</module>
-           <module>../aka-fileserver</module>
-           <module>../aka-ueditor-ext</module>
+        <module>../aka-common-smssend</module>
+        <module>../aka-common-webvc</module>
+        <module>../aka-admin-base</module>
+        <module>../aka-service-frame</module>
+        <module>../aka-fileserver</module>
+        <module>../aka-ueditor-ext</module>
+        <module>../aka-common-tool</module>
+        <module>../aka-dbutils</module>
+        <module>../aka-dbutils-spring</module>
+        <module>../aka-dbutils-spring-boot-starter</module>
+        <module>../aka-dbutils-spring-dynamic-datasource</module>
+        <module>../aka-dbutils-spring-dynamic-datasource-starter</module>
+        <module>../aka-service-gateway-starter</module>
+        <module>../aka-dbutils-spring-redis-starter</module>
+        <module>../aka-dbutils-spring-resttemplate-starter</module>
+        <module>../aka-common-cloud</module>
     </modules>
     <licenses>
         <license>
@@ -85,6 +110,7 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <forkCount>1</forkCount>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
 
@@ -135,20 +161,179 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
     </dependencies>
     <dependencyManagement>
+
         <dependencies>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>1.33</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-Alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulwx</groupId>
+                <artifactId>aka-service-gateway-starter</artifactId>
+                <version>${aka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulwx</groupId>
+                <artifactId>aka-common-cloud</artifactId>
+                <version>${aka.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>aka-dbutils</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>aka-common-tool</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>aka-dbutils-spring</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulwx</groupId>
+                <artifactId>aka-dbutils-spring-boot-starter</artifactId>
+                <version>${aka.dbutils.spring.boot.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulwx</groupId>
+                <artifactId>aka-dbutils-spring-dynamic-datasource</artifactId>
+                <version>${aka-dbutils-spring-dynamic-datasoruce.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulwx</groupId>
+                <artifactId>aka-dbutils-spring-dynamic-datasource-starter</artifactId>
+                <version>${aka-dbutils-spring-dynamic-datasoruce.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>aka-dbutils-spring-redis-starter</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>aka-dbutils-spring-resttemplate-starter</artifactId>
+                <groupId>com.github.ulwx</groupId>
+                <version>${aka.dbutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${shardingjdbc.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-transaction-base-seata-at</artifactId>
+                <version>${shardingjdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-all</artifactId>
+                <version>${seata.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>antlr4</artifactId>
+                        <groupId>org.antlr</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--seata -->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>2.1.2</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.1.3.Final</version>
+            </dependency>
             <dependency>
                 <artifactId>aka-common-webvc</artifactId>
                 <groupId>com.github.ulwx</groupId>
