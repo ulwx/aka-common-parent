@@ -26,7 +26,6 @@
         <spring.boot.version>2.7.12</spring.boot.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
         <spring-cloud-Alibaba.version>2021.0.5.0</spring-cloud-Alibaba.version>
-
         <seata.version>1.7.0</seata.version>
         <shardingjdbc.version>5.4.0</shardingjdbc.version>
     </properties>
