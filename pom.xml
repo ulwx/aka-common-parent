@@ -21,8 +21,8 @@
         <aka.dbutils.spring.version>${aka.version}</aka.dbutils.spring.version>
         <aka.dbutils.spring.boot.starter.version>${aka.version}</aka.dbutils.spring.boot.starter.version>
         <aka-dbutils-spring-dynamic-datasoruce.version>${aka.version}</aka-dbutils-spring-dynamic-datasoruce.version>
-        <spring.version>5.3.26</spring.version>
-        <spring.boot.version>2.7.12</spring.boot.version>
+        <spring.version>5.3.31</spring.version>
+        <spring.boot.version>2.7.18</spring.boot.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
         <spring-cloud-Alibaba.version>2021.0.5.0</spring-cloud-Alibaba.version>
         <seata.version>1.7.0</seata.version>
@@ -140,6 +140,35 @@
             </plugin>
 
         </plugins>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <includeSystemScope>true</includeSystemScope>
+                        <mainClass>org.github.ulwx.aka.admin.test.AdminTestSpringbootApplication</mainClass>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <version>1.4.2.RELEASE</version>
+                </plugin>
+                <!--
+                 <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-jar-plugin</artifactId>
+                     <version>3.0.2</version>
+                 </plugin>
+                 -->
+                <!-- 其他插件配置 -->
+            </plugins>
+        </pluginManagement>
     </build>
 
     <dependencies>
