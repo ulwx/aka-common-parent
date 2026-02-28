@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>aka-common-parent</artifactId>
     <groupId>com.github.ulwx</groupId>
-    <version>2.1-SNAPSHOT</version>
+    <version>3.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>aka-common-parent</name>
     <url>https://github.com/ulwx/aka-common-parent</url>
@@ -14,39 +14,39 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
-        <java.version>11</java.version>
+        <java.version>25</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-        <aka.version>2.1-SNAPSHOT</aka.version>
+        <aka.version>3.0-SNAPSHOT</aka.version>
         <aka.dbutils.version>${aka.version}</aka.dbutils.version>
         <aka.dbutils.spring.version>${aka.version}</aka.dbutils.spring.version>
         <aka.dbutils.spring.boot.starter.version>${aka.version}</aka.dbutils.spring.boot.starter.version>
         <aka-dbutils-spring-dynamic-datasoruce.version>${aka.version}</aka-dbutils-spring-dynamic-datasoruce.version>
-        <spring.version>5.3.31</spring.version>
-        <spring.boot.version>2.7.18</spring.boot.version>
-        <spring-cloud.version>2021.0.7</spring-cloud.version>
-        <spring-cloud-Alibaba.version>2021.0.5.0</spring-cloud-Alibaba.version>
-        <seata.version>1.7.0</seata.version>
-        <shardingjdbc.version>5.4.0</shardingjdbc.version>
+        <spring.version>7.0.5</spring.version>
+        <spring.boot.version>4.0.3</spring.boot.version>
+        <spring-cloud.version>2025.1.1</spring-cloud.version>
+        <spring-cloud-Alibaba.version>2025.1.0.0</spring-cloud-Alibaba.version>
+        <seata.version>2.0.0</seata.version>
+        <shardingjdbc.version>5.5.2</shardingjdbc.version>
     </properties>
     <modules>
-        <module>../aka-common-smssend</module>
-        <module>../aka-common-webvc</module>
-        <module>../aka-admin-base</module>
-        <module>../aka-service-frame</module>
-        <module>../aka-fileserver</module>
-        <module>../aka-ueditor-ext</module>
+<!--        <module>../aka-common-smssend</module>-->
+<!--        <module>../aka-common-webvc</module>-->
+<!--        <module>../aka-admin-base</module>-->
+<!--        <module>../aka-service-frame</module>-->
+<!--        <module>../aka-fileserver</module>-->
+<!--        <module>../aka-ueditor-ext</module>-->
         <module>../aka-common-tool</module>
         <module>../aka-dbutils</module>
-        <module>../aka-dbutils-spring</module>
-        <module>../aka-dbutils-spring-boot-starter</module>
-        <module>../aka-dbutils-spring-dynamic-datasource</module>
-        <module>../aka-dbutils-spring-dynamic-datasource-starter</module>
-        <module>../aka-service-gateway-starter</module>
-        <module>../aka-dbutils-spring-redis-starter</module>
-        <module>../aka-dbutils-spring-resttemplate-starter</module>
-        <module>../aka-common-cloud</module>
+<!--        <module>../aka-dbutils-spring</module>-->
+<!--        <module>../aka-dbutils-spring-boot-starter</module>-->
+<!--        <module>../aka-dbutils-spring-dynamic-datasource</module>-->
+<!--        <module>../aka-dbutils-spring-dynamic-datasource-starter</module>-->
+<!--        <module>../aka-service-gateway-starter</module>-->
+<!--        <module>../aka-dbutils-spring-redis-starter</module>-->
+<!--        <module>../aka-dbutils-spring-resttemplate-starter</module>-->
+<!--        <module>../aka-common-cloud</module>-->
     </modules>
     <licenses>
         <license>
