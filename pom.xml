@@ -306,7 +306,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <artifactId>shardingsphere-jdbc</artifactId>
                 <version>${shardingjdbc.version}</version>
                 <exclusions>
                     <exclusion>
@@ -392,105 +392,10 @@
     </dependencyManagement>
 
     <profiles>
-        <profile>
-            <id>release-on-ossrh</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.6.3</version>
-                        <configuration>
-                            <charset>UTF-8</charset>
-                            <encoding>UTF-8</encoding>
-                            <docencoding>UTF-8</docencoding>
-                            <charset>UTF-8</charset>
-                            <!-- 关闭 doclint 检查 -->
-                            <additionalJOptions>
-                                <additionalJOption>-Xdoclint:none</additionalJOption>
-                            </additionalJOptions>
-                            <!-- 避免因为 @param @return 缺失报错 -->
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
 
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.central</groupId>
-                        <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.5.0</version>
-
-                        <extensions>true</extensions>
-                        <configuration>
-                            <publishingServerId>ossrh</publishingServerId>
-
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-
-        </profile>
     </profiles>
 
-    <distributionManagement>
-        <repository>
-            <id>privatemvn</id>
-            <name>Nexus Releases Repository</name>
-            <url>http://8.134.213.29:9381/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>privatemvn</id>
-            <name>Nexus Snapshots Repository</name>
-            <url>http://8.134.213.29:9381/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <repositories>
-        <repository>
-            <id>privatemvn</id>
-            <url>http://8.134.213.29:9381/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <!--指定插件仓库 -->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>privatemvn</id>
-            <url>http://8.134.213.29:9381/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+
     <scm>
         <connection>https://github.com/ulwx/aka-common-parent.git</connection>
         <url>https://github.com/ulwx/aka-common-parent</url>
