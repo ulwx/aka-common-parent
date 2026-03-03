@@ -31,18 +31,18 @@
         <shardingjdbc.version>5.5.2</shardingjdbc.version>
     </properties>
     <modules>
-<!--        <module>../aka-common-smssend</module>-->
+        <module>../aka-common-smssend</module>
 <!--        <module>../aka-common-webvc</module>-->
 <!--        <module>../aka-admin-base</module>-->
 <!--        <module>../aka-service-frame</module>-->
 <!--        <module>../aka-fileserver</module>-->
-<!--        <module>../aka-ueditor-ext</module>-->
+        <module>../aka-ueditor-ext</module>
         <module>../aka-common-tool</module>
         <module>../aka-dbutils</module>
-<!--        <module>../aka-dbutils-spring</module>-->
-<!--        <module>../aka-dbutils-spring-boot-starter</module>-->
-<!--        <module>../aka-dbutils-spring-dynamic-datasource</module>-->
-<!--        <module>../aka-dbutils-spring-dynamic-datasource-starter</module>-->
+        <module>../aka-dbutils-spring</module>
+        <module>../aka-dbutils-spring-boot-starter</module>
+        <module>../aka-dbutils-spring-dynamic-datasource</module>
+        <module>../aka-dbutils-spring-dynamic-datasource-starter</module>
 <!--        <module>../aka-service-gateway-starter</module>-->
 <!--        <module>../aka-dbutils-spring-redis-starter</module>-->
 <!--        <module>../aka-dbutils-spring-resttemplate-starter</module>-->
